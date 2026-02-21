@@ -30,7 +30,7 @@ body {
 
 .menu-links a:hover {
   background-color: #ffb6c1;
-  color: #000;
+  color: #333333;
 }
 
 
@@ -52,7 +52,7 @@ body {
 
 .dropbtn:hover {
   background-color: #ffb6c1;
-  color: #000;
+  color: #333333;
 }
 
 .dropdown {
@@ -82,7 +82,7 @@ body {
 
 .dropdown-content a:hover {
   background-color: #ffb6c1;
-  color: #000;
+  color: #333333;
 }
 
 .dropdown:hover .dropdown-content {
@@ -316,7 +316,8 @@ body {
 }
 
 .footer-links a:hover {
-  color: #333;
+  color: #333333;
+;
 }
 
 .footer-copy {
