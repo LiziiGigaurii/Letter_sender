@@ -89,6 +89,95 @@ body {
   display: block;
 }
 
+/* log  in */
+.login-section {
+  margin: 120px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  padding: 36px 30px;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.login-card h2 {
+  font-size: 1.9rem;
+  color: #333333;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.login-subtitle {
+  font-size: 0.9rem;
+  color: #777777;
+  margin-bottom: 28px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1.5px solid #e6e6e6;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-form input::placeholder {
+  color: #aaaaaa;
+}
+
+.login-form input:focus {
+  border-color: #f0a6c2;
+  box-shadow: 0 0 0 3px rgba(240, 166, 194, 0.25);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 14px;
+  background: #333333;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.login-footer {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: #888888;
+}
+
+.login-footer a {
+  color: #f08ab6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+
+
 
 /* qvemota footeri */
 .footer {
