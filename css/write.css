@@ -89,6 +89,283 @@ body {
   display: block;
 }
 
+/* write letter */
+.write-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  gap: 20px; /* Space between the toolbar and the workspace */
+}
+
+/* Floating separate toolbar */
+.letter-toolbar {
+  background: white;
+  padding: 10px 25px;
+  border: 2px solid #ffc0cb;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 15px rgba(255, 192, 203, 0.2);
+  width: fit-content;
+}
+
+.workspace {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Space between stickers and letter */
+}
+
+/* Sticker sidebar stays alongside */
+.sticker-sidebar {
+  background: white;
+  padding: 20px 12px;
+  border-radius: 20px;
+  border: 2px solid #ffc0cb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.sticker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 28px;
+}
+
+.sticker-item {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sticker-item:hover { transform: scale(1.3); }
+
+/* The Letter Paper stays separate */
+.letter-paper {
+  background: #ffffff;
+  width: 600px;
+  min-height: 800px;
+  padding: 60px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.tool-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vertical-divider {
+  width: 1px;
+  height: 25px;
+  background-color: #ffc0cb;
+}
+
+.picker-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.picker-wrapper label {
+  font-size: 9px;
+  font-weight: bold;
+  color: #ffb6c1;
+  text-transform: uppercase;
+}
+
+.to-line {
+  font-size: 24px;
+  color: #ffb6c1;
+  margin-bottom: 30px;
+  font-family: 'Georgia', serif;
+  border-bottom: 1px solid #fff5f7;
+}
+
+.letter-content {
+  font-size: 19px;
+  line-height: 1.8;
+  outline: none;
+  min-height: 600px;
+  color: #444444;
+}
+
+.placed-sticker {
+  position: absolute;
+  font-size: 50px;
+  cursor: move;
+  z-index: 100;
+  user-select: none;
+}
+
+.clear-btn {
+  background: none;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  background: #ff4d4d;
+  color: white;
+}
+
+#username, #fontSelect {
+  border: 1px solid #ffc0cb;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 13px;
+  outline: none;
+}
+
+input[type="color"] {
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: none;
+}
+.send-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.send-btn {
+    background-color: #ffc0cb;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 45px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 0px #ffb6c1, 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.send-btn:hover {
+    background-color: #ffb6c1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0px #ffaab8, 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.send-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0px #ffaab8, 0 5px 10px rgba(0,0,0,0.1);
+}
+/* The background dimming effect */
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 192, 203, 0.4);
+  backdrop-filter: blur(5px); /* Blurs the letter behind it */
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The actual white box */
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 30px;
+  width: 400px;
+  text-align: center;
+  border: 3px solid #ffc0cb;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-header h2 {
+  color: #ff8da1;
+  margin: 10px 0;
+  font-family: 'Georgia', serif;
+}
+
+.modal-box p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.modal-buttons button {
+  padding: 12px 25px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-cancel {
+  background: #fff0f5;
+  color: #ff8da1;
+  border: 1px solid #ffc0cb !important;
+}
+
+.btn-confirm {
+  background: #ff8da1;
+  color: white;
+  box-shadow: 0 4px 0 #ff6b81;
+}
+
+.btn-confirm:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #ff6b81;
+}
+
+#warningModal .modal-header h2 {
+    color: #ffb347;
+    margin: 10px 0;
+    font-family: 'Georgia', serif;
+}
+
+#warningModal .btn-confirm {
+    background: #ffb347;
+    color: white;
+    box-shadow: 0 4px 0 #e69a30;
+    padding: 12px 30px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#warningModal .btn-confirm:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #e69a30;
+}
+
 
 
 /* qvemota footeri */
@@ -96,7 +373,7 @@ body {
   background-color: #ffc0cb;
   padding: 40px 20px 30px;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .footer-title {

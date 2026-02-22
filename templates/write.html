@@ -26,7 +26,88 @@
     </div>
   </div>
 
+<main class="write-container">
+  
+  <div class="letter-toolbar">
+    <div class="tool-group">
+      <input type="text" id="username" placeholder="Recipient">
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="tool-group">
+      <select id="fontSelect" onchange="document.execCommand('fontName', false, this.value)">
+        <option value="Georgia">Serif</option>
+        <option value="'Courier New'">Typewriter</option>
+        <option value="'Brush Script MT'">Cursive</option>
+        <option value="Arial">Sans</option>
+      </select>
+      <div class="picker-wrapper">
+        <label>Ink</label>
+        <input type="color" id="inkColor" value="#444444" onchange="document.execCommand('foreColor', false, this.value)">
+      </div>
+      <div class="picker-wrapper">
+        <label>Paper</label>
+        <input type="color" id="bgColor" value="#ffffff" onchange="changePaperColor(this.value)">
+      </div>
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="tool-group">
+      <button onclick="clearAll()" class="clear-btn">CLEAR</button>
+    </div>
+  </div>
 
+  <div class="workspace">
+    <aside class="sticker-sidebar">
+      <div class="sticker-list">
+        <span class="sticker-item" onclick="addSticker('💖')">💖</span>
+        <span class="sticker-item" onclick="addSticker('🎀')">🎀</span>
+        <span class="sticker-item" onclick="addSticker('⭐')">⭐</span>
+        <span class="sticker-item" onclick="addSticker('🐱')">🐱</span>
+        <span class="sticker-item" onclick="addSticker('🍀')">🍀</span>
+        <span class="sticker-item" onclick="addSticker('🍭')">🍭</span>
+        <span class="sticker-item" onclick="addSticker('🌈')">🌈</span>
+        <span class="sticker-item" onclick="addSticker('🍓')">🍓</span>
+        <span class="sticker-item" onclick="addSticker('🧸')">🧸</span>
+        <span class="sticker-item" onclick="addSticker('🌸')">🌸</span>
+      </div>
+    </aside>
+
+    <div class="letter-paper" id="paper">
+      <div class="to-line">To: <span id="to-display">_______</span></div>
+      <div class="letter-content" id="editor" contenteditable="true" placeholder="Start writing..."></div>
+    </div>
+  </div>
+  <div class="send-container">
+    <button class="send-btn" onclick="sendLetter()">Send a Letter 💌</button>
+</div>
+
+<div id="customModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span>💕</span>
+      <h2>Reset Your Letter?</h2>
+    </div>
+    <p>Are you sure you want to clear everything? Your message and all decorations will be removed.</p>
+    <div class="modal-buttons">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-confirm" onclick="confirmClear()">Reset All</button>
+    </div>
+  </div>
+</div>
+
+<div id="warningModal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span style="font-size: 30px;">⚠️</span>
+      <h2>Wait a second!</h2>
+    </div>
+    <p>Please enter a <b>Recipient Name</b> before sending your letter so we know who it's for!</p>
+    <div class="modal-buttons">
+      <button class="btn-confirm" onclick="closeWarning()">Got it!</button>
+    </div>
+  </div>
+</div>
+
+</main>
 
 <footer class="footer">
   <p class="footer-title">Write a Letter 💌</p>
@@ -42,6 +123,7 @@
   <p class="footer-copy">© 2026 Yasnia lizis saitia</p>
 </footer>
 
+<script src="../write_script.js"></script>
 
 </body>
 </html>
